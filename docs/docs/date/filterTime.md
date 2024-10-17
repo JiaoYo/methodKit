@@ -1,5 +1,45 @@
-// 格式化时间
-export function filterDateTime(type: number, dataTime?: string | number | null) {
+---
+sidebar_position: 1
+---
+
+# 格式化时间
+
+## 概念
+
+处理时间的方法
+
+## 接收参数
+
+```
+filterDateTime(type,dataTime)
+参数1:type
+	类型
+参数2:dataTime
+	这是日期时间
+```
+
+
+
+## 例子
+
+```javascript
+import { filterDateTime } from 'method-kit'
+// ····
+
+console.log(filterDateTime(0,'2023-08-29 10:10:10')) // 2023-08-29 
+console.log(filterDateTime(1,'2023-08-29 10:10:10')) // 2023-08-29 10:10:10
+console.log(filterDateTime(2,'2023-08-29 10:10:10')) // 2023-08-29 10:10:10.000
+console.log(filterDateTime(3,'2023-08-29 10:10:10')) // 2023-08
+console.log(filterDateTime(4,'2023-08-29 10:10:10')) // 2023
+console.log(filterDateTime(5,'2023-08-29 10:10:10')) // 1693430410000
+```
+
+
+
+## 源码
+
+```javascript
+function filterDateTime(type: number, dataTime?: string | number | null) {
   let systemDate = dataTime ? new Date(dataTime) : new Date(),
     year = systemDate.getFullYear(),
     month: any = systemDate.getMonth() + 1,
@@ -27,29 +67,5 @@ export function filterDateTime(type: number, dataTime?: string | number | null) 
     return new Date(year + '-' + month + '-' + date + " " + hours + ":" + minutes + ":" + seconds).getTime();
   }
 }
-// 深拷贝
-export function deepClone(obj: any) {
-  // 处理 null 和非对象的情况
-  if (obj === null || typeof obj !== 'object') {
-    return obj;
-  }
-  let result: any = Array.isArray(obj) ? [] : {};
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        result[key] = deepClone(obj[key]); // 递归复制
-      } else {
-        result[key] = obj[key];
-      }
-    }
-  }
-  return result;
-}
-// 防抖
-export function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {
-  let timer: NodeJS.Timeout | null = null;
-  return function (this: unknown, ...args: Parameters<T>) {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), delay);
-  };
-}
+```
+

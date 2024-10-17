@@ -1,0 +1,27 @@
+{
+  "id": "date/debounce",
+  "title": "防抖",
+  "description": "概念",
+  "source": "@site/docs/date/debounce.md",
+  "sourceDirName": "date",
+  "slug": "/date/debounce",
+  "permalink": "/docs/date/debounce",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/date/debounce.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "时间处理",
+    "permalink": "/docs/category/时间处理"
+  },
+  "next": {
+    "title": "常用公共方法",
+    "permalink": "/docs/category/常用公共方法"
+  }
+}
