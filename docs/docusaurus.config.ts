@@ -11,7 +11,8 @@ const config: Config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // baseUrl: '/docs/build',
+  baseUrl: '/tools_docs', // 部署路径，默认是/
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -80,7 +81,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/JiaoYo/V3-admin',
+          href: 'https://github.com/JiaoYo/methodKit',
           label: 'GitHub',
           position: 'right',
         },
