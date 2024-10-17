@@ -1,53 +1,53 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/docs",
+      "path": "/tools_docs/docs",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/docs",
+          "path": "/tools_docs/docs",
           "mainDocId": "intro",
           "docs": [
             {
               "id": "array/array",
-              "path": "/docs/array/",
+              "path": "/tools_docs/docs/array/",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "date/filterTime",
-              "path": "/docs/date/filterTime",
+              "path": "/tools_docs/docs/date/filterTime",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "intro",
-              "path": "/docs/intro",
+              "path": "/tools_docs/docs/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "tutorial-extras/debounce",
-              "path": "/docs/tutorial-extras/debounce",
+              "path": "/tools_docs/docs/tutorial-extras/debounce",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "tutorial-extras/deepClone",
-              "path": "/docs/tutorial-extras/deepClone",
+              "path": "/tools_docs/docs/tutorial-extras/deepClone",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "/category/数组方法",
-              "path": "/docs/category/数组方法",
+              "path": "/tools_docs/docs/category/数组方法",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "/category/常用公共方法",
-              "path": "/docs/category/常用公共方法",
+              "path": "/tools_docs/docs/category/常用公共方法",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "/category/日期时间方法",
-              "path": "/docs/category/日期时间方法",
+              "path": "/tools_docs/docs/category/日期时间方法",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -55,7 +55,7 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/intro",
+                "path": "/tools_docs/docs/intro",
                 "label": "intro"
               }
             }

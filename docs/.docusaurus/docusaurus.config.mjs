@@ -8,7 +8,7 @@ export default {
   "tagline": "工具库",
   "favicon": "img/favicon.ico",
   "url": "https://your-docusaurus-site.example.com",
-  "baseUrl": "/",
+  "baseUrl": "/tools_docs/",
   "organizationName": "facebook",
   "projectName": "docusaurus",
   "onBrokenLinks": "throw",
@@ -70,7 +70,7 @@ export default {
           "position": "left"
         },
         {
-          "href": "https://github.com/JiaoYo/V3-admin",
+          "href": "https://github.com/JiaoYo/methodKit",
           "label": "GitHub",
           "position": "right"
         }

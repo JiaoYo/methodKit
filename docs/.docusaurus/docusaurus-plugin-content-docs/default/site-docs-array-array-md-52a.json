@@ -5,7 +5,7 @@
   "source": "@site/docs/array/array.md",
   "sourceDirName": "array",
   "slug": "/array/",
-  "permalink": "/docs/array/",
+  "permalink": "/tools_docs/docs/array/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/array/array.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "数组方法",
-    "permalink": "/docs/category/数组方法"
+    "permalink": "/tools_docs/docs/category/数组方法"
   },
   "next": {
     "title": "常用公共方法",
-    "permalink": "/docs/category/常用公共方法"
+    "permalink": "/tools_docs/docs/category/常用公共方法"
   }
 }
