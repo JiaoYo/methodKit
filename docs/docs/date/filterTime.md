@@ -11,11 +11,11 @@ sidebar_position: 1
 ## 接收参数
 
 ```
-filterDateTime(type,dataTime)
-参数1:type
-	类型
-参数2:dataTime
+filterDateTime(dataTime,format)
+参数1:dataTime
 	这是日期时间
+参数2:format
+	这是格式化时间的格式
 ```
 
 
@@ -26,12 +26,14 @@ filterDateTime(type,dataTime)
 import { filterDateTime } from 'method-kit'
 // ····
 
-console.log(filterDateTime(0,'2023-08-29 10:10:10')) // 2023-08-29 
-console.log(filterDateTime(1,'2023-08-29 10:10:10')) // 2023-08-29 10:10:10
-console.log(filterDateTime(2,'2023-08-29 10:10:10')) // 2023-08-29 10:10:10.000
-console.log(filterDateTime(3,'2023-08-29 10:10:10')) // 2023-08
-console.log(filterDateTime(4,'2023-08-29 10:10:10')) // 2023
-console.log(filterDateTime(5,'2023-08-29 10:10:10')) // 1693430410000
+console.log(filterDateTime(null, 'YYYY-MM-dd hh:mm:SSS')); // 2023-06-07 15:45:028
+console.log(filterDateTime(null, 'yyyy-MM-dd hh:mm:ss')); // 2023-06-07 15:45:00
+console.log(filterDateTime(null, 'YYYY-MM-dd')); // 2023-06-07
+console.log(filterDateTime(null, 'yyyy')); // 2023
+console.log(filterDateTime(null, 'MM-dd')); // 06-07
+console.log(filterDateTime(null, 'hh:mm:ss')); // 15:45:00
+console.log(filterDateTime(null, 'hh:mm')); // 15:45
+
 ```
 
 
@@ -39,33 +41,27 @@ console.log(filterDateTime(5,'2023-08-29 10:10:10')) // 1693430410000
 ## 源码
 
 ```javascript
-function filterDateTime(type: number, dataTime?: string | number | null) {
-  let systemDate = dataTime ? new Date(dataTime) : new Date(),
-    year = systemDate.getFullYear(),
-    month: any = systemDate.getMonth() + 1,
-    date: any = systemDate.getDate(),
-    hours: any = systemDate.getHours(),
-    minutes: any = systemDate.getMinutes(),
-    seconds: any = systemDate.getSeconds(),
-    milliseconds: any = systemDate.getMilliseconds();
-  month = month < 10 ? '0' + month : month;
-  date = date < 10 ? '0' + date : date;
-  hours = hours < 10 ? '0' + hours : hours;
-  minutes = minutes < 10 ? '0' + minutes : minutes;
-  seconds = seconds < 10 ? '0' + seconds : seconds;
-  if (type == 0) {
-    return year + '-' + month + '-' + date;
-  } else if (type == 1) {
-    return year + '-' + month + '-' + date + " " + hours + ":" + minutes + ":" + seconds;
-  } else if (type == 2) {
-    return year + '-' + month + '-' + date + " " + hours + ":" + minutes + ":" + seconds + '.' + milliseconds;
-  } else if (type == 3) {
-    return year + '-' + month;
-  } else if (type == 4) {
-    return year
-  } else if (type == 5) {
-    return new Date(year + '-' + month + '-' + date + " " + hours + ":" + minutes + ":" + seconds).getTime();
-  }
+function filterDateTime(dataTime: string | number | Date, format = 'yyyy-MM-dd hh:mm:ss'): string {
+  const systemDate = dataTime ? new Date(dataTime) : new Date();
+  
+  const year = systemDate.getFullYear();
+  const month = String(systemDate.getMonth() + 1).padStart(2, '0');
+  const date = String(systemDate.getDate()).padStart(2, '0');
+  const hours = String(systemDate.getHours()).padStart(2, '0');
+  const minutes = String(systemDate.getMinutes()).padStart(2, '0');
+  const seconds = String(systemDate.getSeconds()).padStart(2, '0');
+  const milliseconds = String(systemDate.getMilliseconds()).padStart(3, '0');
+
+  return format.replace('yyyy', year.toString())
+    .replace('YYYY', year.toString())
+    .replace('MM', month.toString())
+    .replace('dd', date.toString())
+    .replace('DD', date.toString())
+    .replace('hh', hours.toString())
+    .replace('mm', minutes.toString())
+    .replace('ss', seconds.toString())
+    .replace('SSS', milliseconds.toString());
 }
+
 ```
 
